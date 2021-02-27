@@ -1,0 +1,30 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>CORHIO Connexion Device Library</Name>
+    <Description>Project template for bulding Connexion devices</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>CORHIO Connexion Device Library</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.png</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safeprojectname$.csproj" File="DeviceLibrary.csproj" ReplaceParameters="true">
+	  <ProjectItem ReplaceParameters="false" TargetFileName=".editorconfig">.editorconfig</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Device.cs">Device.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="DeviceConfiguration.cs">DeviceConfiguration.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="DeviceFactory.cs">DeviceFactory.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="DeviceIcon.png">DeviceIcon.png</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="DeviceUI.xaml">DeviceUI.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="DeviceUI.xaml.cs">DeviceUI.xaml.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="DeviceUIViewModel.cs">DeviceUIViewModel.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

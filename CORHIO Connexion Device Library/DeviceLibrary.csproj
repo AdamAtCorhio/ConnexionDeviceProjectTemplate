@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="DeviceIcon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="DeviceIcon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Include="DeviceUI.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Connexion.Core">
+			<HintPath>..\..\..\..\..\..\..\Program Files (x86)\ConnexionV15\Connexion.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="PresentationCore" />
+		<Reference Include="PresentationFramework" />
+		<Reference Include="System.ComponentModel.Composition" />
+		<Reference Include="System.Xaml" />
+		<Reference Include="WindowsBase" />
+	</ItemGroup>
+	
+	<PropertyGroup>
+		<Version>$([System.DateTime]::Now.ToString("yyyy.1."$([System.DateTime]::Now.DayOfYear)".HHmm"))</Version>
+		<AssemblyVersion>$([System.DateTime]::Now.ToString("yyyy.1."$([System.DateTime]::Now.DayOfYear)".HHmm"))</AssemblyVersion>
+		<FileVersion>$([System.DateTime]::Now.ToString("yyyy.1."$([System.DateTime]::Now.DayOfYear)".HHmm"))</FileVersion>
+		<Description>CORHIO $safeprojectname$ Connexion Device</Description>
+		<Copyright>CORHIO</Copyright>
+		<PackageIconUrl>https://www.corhio.org/favicon.ico</PackageIconUrl>
+		<PackageTags>CORHIO $safeprojectname$ Connexion Device</PackageTags>
+		<RepositoryUrl>https://github.com/Corhio/$safeprojectname$</RepositoryUrl>
+	</PropertyGroup>
+
+</Project>
