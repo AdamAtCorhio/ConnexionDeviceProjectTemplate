@@ -19,12 +19,18 @@ namespace $safeprojectname$
 {
   	public partial class $safeprojectname$UI : UserControl, IEmbeddedHelpFile
 	{
+    /// <summary>
+	/// Creates a new instance of the class.
+	/// </summary>
     	public $safeprojectname$UI()
 		{
 			XamlInitializer.Initialize(this);
 		}
 
-    	public $safeprojectname$UI($safeprojectname$Configuration config, IDeviceUIParams deviceUIParams) :
+        /// <summary>
+        ///  Creates a new instance of the class. Accepts a configuration object and IDeviceUIParams
+        /// </summary>
+        public $safeprojectname$UI($safeprojectname$Configuration config, IDeviceUIParams deviceUIParams) :
 		  this()
 		{
       		var vm = new $safeprojectname$UIViewModel(config, deviceUIParams);
@@ -33,21 +39,33 @@ namespace $safeprojectname$
 
 		#region Help File
 
+        /// <summary>
+		/// Help file filename.
+		/// </summary>
 		public string FileName
 		{
 			get { return "http://myhelpfileurl"; }
 		}
 
+        /// <summary>
+        /// Returns a stream to the help file.
+        /// </summary>
 		public System.IO.Stream GetHelpFile()
 		{
 			return null;
 		}
 
+        /// <summary>
+		/// Help keyword.
+		/// </summary>
 		public string Keyword
 		{
 			get { return string.Empty; }
 		}
 
+        /// <summary>
+		/// Help file cache path.
+		/// </summary>
 		public string CachePath { get; set; }
 
 		#endregion

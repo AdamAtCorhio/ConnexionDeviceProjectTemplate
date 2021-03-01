@@ -11,6 +11,9 @@ using System.Reflection;
 
 namespace $safeprojectname$
 {
+    /// <summary>
+	/// Connexion Device Factory Class
+	/// </summary>
     public class $safeprojectname$Factory : BaseDeviceFactory<$safeprojectname$Configuration>
 	{
 		/// <summary>
@@ -19,15 +22,14 @@ namespace $safeprojectname$
 		/// the name of the device user interface, update all instances of deviceUIParams to your new UI class. You may also need to update the DeviceImage
 		/// property if you included your own custom device icon.
 		/// </summary>
-
-		//pass the UI over to the host
 		public override FrameworkElement GetUserInterface(IDeviceUIParams deviceUIParams)
 		{
 			return new $safeprojectname$UI(Configuration, deviceUIParams);
 		}
 
 		/// <summary>
-		/// This is the device icon which will be displayed in the main user interface. If you wish to use your own, add a new image, set it as an embedded
+		/// This is the device icon which will be displayed in the main user interface.
+		/// If you wish to use your own, add a new image, set it as an embedded 
 		/// resource, and update the code below to point to your bitmap filename.
 		/// </summary>
 		public override BitmapImage DeviceImage
@@ -42,9 +44,11 @@ namespace $safeprojectname$
 			}
 		}
 
-		// If you would like your device to show up in a specific category when being added to a channel,
-		// enter it here. If you return null, your device will be categorized under "Other".
-		public override string[] Categories
+        /// <summary>
+        /// If you would like your device to show up in a specific category when being added to a channel,
+        /// enter it here. If you return null, your device will be categorized under "Other".
+        /// </summary>
+        public override string[] Categories
 		{
 			get { return null; } // return new[] { "Category A", "CategoryB/SubCat A" }; 
 		}

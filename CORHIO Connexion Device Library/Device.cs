@@ -15,30 +15,41 @@ namespace $safeprojectname$
 	[DevicePlugin("$safeprojectname$","$safeprojectname$ Connexion Device", DeviceDefinitionFlags.None, typeof(object), typeof(object), typeof($safeprojectname$Factory))]
 	public class $safeprojectname$ : BaseDevice<$safeprojectname$Configuration>
 	{
+        /// <summary>
+	    /// Called once when the channel is started. Place any custom startup logic you need here.
+	    /// </summary>
 		public override void Start()
 		{
-			// place any custom startup logic here. This will be called once when the channel is started
 			MessageChannel.Logger.Write(EventSeverity.Info, "Device is starting");
 		}
 
-		public override void Stop()
+        /// <summary>
+        /// Called once when the channel is stopped. Place any custom cleanup logic you need here.
+        /// </summary>
+        public override void Stop()
 		{
-			// place any custom cleanup logic here. This will be called once when the channel is stopped
 			MessageChannel.Logger.Write(EventSeverity.Info, "Device is stopping");
 		}
 
-		// Please use the async version if possible. this will be called for each message that is being sent through the system.
-		//public override void ProcessMessage(IMessageContext context)
-		//{
-		//  // get and cast the message to the desired type
-		//  var message = context.Message;
+        // Please use the async version if possible. this will be called for each message that is being sent through the system.
+        //public override void ProcessMessage(IMessageContext context)
+        //{
+        //  // get and cast the message to the desired type
+        //  var message = context.Message;        
+        //  // you can write processing events which are tied to the current message
+        //  context.WriteEvent(EventSeverity.Info, "Some text");
+        //}        
+        // 
 
-		//  // you can write processing events which are tied to the current message
-		//  context.WriteEvent(EventSeverity.Info, "Some text");
-		//}
-
-		// this will be called for each message that is being sent through the system.
-		public override async Task ProcessMessageAsync(IMessageContext context, CancellationToken token)
+        /// <summary>
+        ///  A method which is called for each message that is being sent through the system.
+        ///  It allows you to inspect and react to a message using custom logic
+        ///  or by writing one of several predefined processing events which are tied to the current message.
+        /// </summary>
+        /// <param name="context">The IMessageContext</param>
+        /// <param name="token">A token that monitors for attempts to cancel message processing.</param>
+        /// <returns></returns>
+        public override async Task ProcessMessageAsync(IMessageContext context, CancellationToken token)
 		{
 			// get and cast the message to the desired type
 			var message = context.Message;
@@ -47,8 +58,14 @@ namespace $safeprojectname$
 			context.WriteEvent(EventSeverity.Info, "Some text");
 		}
 
-		// called when an exception occurs in ProcessMessage (or the async version)
-		public override void OnError(IMessageContext context, ErrorEventArgs args)
+        /// <summary>
+        /// Called when an exception occurs in ProcessMessage (or the async version).
+		/// Add custom error logging here.
+		/// Set the device's retry delay and/or backing-off strategy here.
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="args"></param>
+        public override void OnError(IMessageContext context, ErrorEventArgs args)
 		{
 			// retry the message?
 			args.ShouldRetry = true;

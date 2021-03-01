@@ -11,6 +11,9 @@ using System.ComponentModel;
 
 namespace $safeprojectname$
 {
+    /// <summary>
+	/// Connexion Device Configuration class.
+	/// </summary>
 	[DataContract(IsReference = true)]
 	public class $safeprojectname$Configuration : NotifyBase, IDataErrorInfo
 	{
@@ -20,7 +23,6 @@ namespace $safeprojectname$
 		/// If you will be handling sensitive data, you can use the [Encrypted] attribute. This attribute must decorate each property
 		/// to be encrypted, as well as this configuration class.
 		/// </summary>
-
 		private string m_AConfigurationProperty = string.Empty;
 		[DataMember]
 		public string AConfigurationProperty
@@ -41,11 +43,17 @@ namespace $safeprojectname$
 
 		#region IDataErrorInfo Members
 
+        /// <summary>
+		/// Returns the aggregate configuration error messages string.
+		/// </summary>
 		public string Error
 		{
 			get { throw new NotImplementedException(); }
 		}
 
+        /// <summary>
+		/// Gets the configuration error message for the specified configuration member name.
+		/// </summary>
 		public string this[string columnName]
 		{
 			get
