@@ -14,6 +14,7 @@ namespace $safeprojectname$
     /// <summary>
 	/// Connexion Device Factory Class
 	/// </summary>
+	/// <seealso cref="Connexion.Core.BaseDeviceFactory{$safeprojectname$.$safeprojectname$Configuration}" />
     public class $safeprojectname$Factory : BaseDeviceFactory<$safeprojectname$Configuration>
 	{
 		/// <summary>

@@ -19,17 +19,20 @@ namespace $safeprojectname$
 {
   	public partial class $safeprojectname$UI : UserControl, IEmbeddedHelpFile
 	{
-    /// <summary>
-	/// Creates a new instance of the class.
-	/// </summary>
+		/// <summary>
+		/// Initializes a new instance of the <see cref="$safeprojectname$UI"/> class.
+		/// </summary>
     	public $safeprojectname$UI()
 		{
 			XamlInitializer.Initialize(this);
 		}
 
-        /// <summary>
-        ///  Creates a new instance of the class. Accepts a configuration object and IDeviceUIParams
+		/// <summary>
+        /// Initializes a new instance of the <see cref="$safeprojectname$UI"/> class.
         /// </summary>
+        /// <param name="config">The configuration.</param>
+        /// <param name="deviceUIParams">The device UI parameters.</param>
+
         public $safeprojectname$UI($safeprojectname$Configuration config, IDeviceUIParams deviceUIParams) :
 		  this()
 		{

@@ -48,7 +48,6 @@ namespace $safeprojectname$
         /// </summary>
         /// <param name="context">The IMessageContext</param>
         /// <param name="token">A token that monitors for attempts to cancel message processing.</param>
-        /// <returns></returns>
         public override async Task ProcessMessageAsync(IMessageContext context, CancellationToken token)
 		{
 			// get and cast the message to the desired type
@@ -63,8 +62,8 @@ namespace $safeprojectname$
 		/// Add custom error logging here.
 		/// Set the device's retry delay and/or backing-off strategy here.
         /// </summary>
-        /// <param name="context"></param>
-        /// <param name="args"></param>
+        /// <param name="context">The message context</param>
+        /// <param name="args">The <see cref="ErrorEventArgs"/> instance containing the event data.</param>
         public override void OnError(IMessageContext context, ErrorEventArgs args)
 		{
 			// retry the message?

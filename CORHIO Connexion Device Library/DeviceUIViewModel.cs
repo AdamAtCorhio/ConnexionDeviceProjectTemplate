@@ -8,16 +8,18 @@ using Connexion.Core;
 namespace $safeprojectname$
 {
     /// <summary>
-	/// UI ViewModel class;
+	/// The $safeprojectname$ Device's ViewModel class;
 	/// </summary>
 	public class $safeprojectname$UIViewModel : ViewModelBase
 	{
 		private $safeprojectname$Configuration m_Config;
 		private IDeviceUIParams m_DeviceUIParams;
 
-        /// <summary>
-        /// UI View Model class constructor.
+		/// <summary>
+        /// Initializes a new instance of the <see cref="$safeprojectname$UIViewModel"/> class.
         /// </summary>
+        /// <param name="config">The configuration.</param>
+        /// <param name="deviceUIParams">The device UI parameters.</param>
 		public $safeprojectname$UIViewModel($safeprojectname$Configuration config, IDeviceUIParams deviceUIParams)
 		{
 			m_Config = config;

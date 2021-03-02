@@ -19,3 +19,4 @@ Feature(s) above and beyond the new **Connexion device project** the **Connexion
  - CORHIO's .editorconfig file is included automatically.
  - XML comments on all the class members.
  - CORHIO branded device icon (actually a hybrid of the CORHIO logo and the Connexion logo, for the lulz).
+ - Fixes some spelling mistakes that were in the comments.
