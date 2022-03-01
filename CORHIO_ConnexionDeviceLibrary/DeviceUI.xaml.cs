@@ -32,7 +32,6 @@ namespace $safeprojectname$
         /// </summary>
         /// <param name="config">The configuration.</param>
         /// <param name="deviceUIParams">The device UI parameters.</param>
-
         public $safeprojectname$UI($safeprojectname$Configuration config, IDeviceUIParams deviceUIParams) :
 		  this()
 		{
@@ -75,3 +74,4 @@ namespace $safeprojectname$
 
 	}
 }
+

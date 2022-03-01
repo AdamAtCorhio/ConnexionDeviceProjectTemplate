@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<VersionPrefix>$([System.DateTime]::Now.ToString(yyyy)).$([System.DateTime]::Now.DayOfYear).$([System.DateTime]::Now.ToString(HHmm)).0</VersionPrefix>
+		<VersionSuffix>$baseprojectname$</VersionSuffix>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        
+        <!--Repository Information.-->
+		<RepositoryUrl>https://github.com/Corhio/$baseprojectname$</RepositoryUrl>
+        
+		<Description>Contexture $safeprojectname$ Connexion Device</Description>
+		
+		<!--Authoring Information.-->
+		<PackageIcon>DeviceIcon.png</PackageIcon>
+		<Authors>Applications Team (PDEV)</Authors>
+		<Company>Contexture</Company>
+		<Description>ECQM</Description>
+		<Copyright>Contexture</Copyright>		
+		<PackageTags>Contexture $baseprojectname$ $safeprojectname$ Connexion Device</PackageTags>
+	</PropertyGroup>
+
+	<!--Device Icon include-->
+	<ItemGroup>
+		<None Remove="DeviceIcon.png" />
+		<EmbeddedResource Include="DeviceIcon.png" />
+	</ItemGroup>
+
+	<!--XAML UI Build-->
+	<ItemGroup>
+		<Page Include="DeviceUI.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+	</ItemGroup>
+	
+	<!--Nuget Package References-->
+	<ItemGroup>
+      <PackageReference Include="HIE.Connexion" Version="15.3.1-GeneralTools" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+	<!--System Level References-->
+	<ItemGroup>
+		<Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Drawing" />
+        <Reference Include="System.IO.Compression.FileSystem" />
+        <Reference Include="System.Numerics" />
+        <Reference Include="PresentationCore" />
+        <Reference Include="PresentationFramework" />
+        <Reference Include="System.ComponentModel.Composition" />
+        <Reference Include="System.Runtime.Serialization" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Xaml" />
+        <Reference Include="WindowsBase" />
+	</ItemGroup>
+
+</Project>
+

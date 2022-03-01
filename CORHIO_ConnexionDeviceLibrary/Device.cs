@@ -20,7 +20,8 @@ namespace $safeprojectname$
 	    /// </summary>
 		public override void Start()
 		{
-			MessageChannel.Logger.Write(EventSeverity.Info, "Device is starting");
+			// place any custom startup logic here. This will be called once when the channel is started
+			// MessageChannel.Logger.Write(EventSeverity.Info, "Device is starting");
 		}
 
         /// <summary>
@@ -28,7 +29,8 @@ namespace $safeprojectname$
         /// </summary>
         public override void Stop()
 		{
-			MessageChannel.Logger.Write(EventSeverity.Info, "Device is stopping");
+			// place any custom cleanup logic here. This will be called once when the channel is stopped
+			// MessageChannel.Logger.Write(EventSeverity.Info, "Device is stopping");
 		}
 
         // Please use the async version if possible. this will be called for each message that is being sent through the system.
@@ -66,13 +68,17 @@ namespace $safeprojectname$
         /// <param name="args">The <see cref="ErrorEventArgs"/> instance containing the event data.</param>
         public override void OnError(IMessageContext context, ErrorEventArgs args)
 		{
-			// retry the message?
-			args.ShouldRetry = true;
+			// Log error message.
+            context.WriteEvent(EventSeverity.Error, args.Exception?.ToString() ?? "Exception object empty.");
+
+            // retry the message?
+			args.ShouldRetry = true;       
 
 			// todo: write something to the context and/or log
 
-			// wait before trying again?
+            // wait before trying again?
 			args.SleepTime = TimeSpan.FromSeconds(args.TotalRetries > 2 ? 30 : 5);
 		}
 	}
 }
+

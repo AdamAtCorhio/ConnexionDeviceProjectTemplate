@@ -39,7 +39,7 @@ namespace $safeprojectname$
 			{
 				var image = new BitmapImage();
 				image.BeginInit();
-				image.StreamSource = Assembly.GetExecutingAssembly().GetManifestResourceStream("$safeprojectname$.DeviceIcon.png");
+				image.StreamSource = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{nameof($safeprojectname$)}.DeviceIcon.png");
 				image.EndInit();
 				return image;
 			}

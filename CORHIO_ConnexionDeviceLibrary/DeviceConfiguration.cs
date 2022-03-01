@@ -12,18 +12,16 @@ using System.ComponentModel;
 namespace $safeprojectname$
 {
     /// <summary>
-	/// Connexion Device Configuration class.
+	/// Define all the properties which will be used to configure your device. All members marked with [DataMember] will be persisted in the Connexion database.
+	/// If you will be handling sensitive data, you can use the [Encrypted] attribute. 
+	/// This attribute must decorate each property to be encrypted, as well as this configuration class.
 	/// </summary>
 	[DataContract(IsReference = true)]
 	public class $safeprojectname$Configuration : NotifyBase, IDataErrorInfo
 	{
 		/// <summary>
-		/// Define all the properties which will be used to configure your device. All members marked with [DataMember] will be
-		/// persisted in the Connexion database.
-		/// If you will be handling sensitive data, you can use the [Encrypted] attribute. This attribute must decorate each property
-		/// to be encrypted, as well as this configuration class.
+		/// AConfigurationProperty. Type a summary of your configuration property here.
 		/// </summary>
-		private string m_AConfigurationProperty = string.Empty;
 		[DataMember]
 		public string AConfigurationProperty
 		{
@@ -40,6 +38,7 @@ namespace $safeprojectname$
 				}
 			}
 		}
+		private string m_AConfigurationProperty = string.Empty;
 
 		#region IDataErrorInfo Members
 
@@ -52,7 +51,7 @@ namespace $safeprojectname$
 		}
 
         /// <summary>
-		/// Gets the configuration error message for the specified configuration member name.
+		/// Implements property validation according to the <see cref="IDataErrorInfo"/> design pattern.
 		/// </summary>
 		public string this[string columnName]
 		{
@@ -62,9 +61,11 @@ namespace $safeprojectname$
 
 				switch (columnName)
 				{
-					case "AConfigurationProperty":
+					case nameof(AConfigurationProperty):
 						if (AConfigurationProperty.Length > 20)
-							result = "AConfigurationProperty must be 20 characters or less.";
+						{
+							result = $"{nameof(AConfigurationProperty)} must be 20 characters or less.";
+						}
 						break;
 				}
 
@@ -76,6 +77,7 @@ namespace $safeprojectname$
 
 	}
 }
+
 
 
 
