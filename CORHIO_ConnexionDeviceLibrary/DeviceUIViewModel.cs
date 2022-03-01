@@ -8,7 +8,7 @@ using Connexion.Core;
 namespace $safeprojectname$
 {
     /// <summary>
-	/// The $safeprojectname$ Device's ViewModel class;
+	/// The $safeprojectname$ Device's ViewModel class
 	/// </summary>
 	public class $safeprojectname$UIViewModel : ViewModelBase
 	{

@@ -17,6 +17,15 @@ using System.Reflection;
 
 namespace $safeprojectname$
 {
+	/// <summary>
+    /// The code behind for the $safeprojectname$ UserControl.
+    /// Implements the <see cref="System.Windows.Controls.UserControl" />
+    /// Implements the <see cref="Connexion.Core.IEmbeddedHelpFile" />
+    /// Implements the <see cref="System.Windows.Markup.IComponentConnector" />
+    /// </summary>
+    /// <seealso cref="System.Windows.Controls.UserControl" />
+    /// <seealso cref="Connexion.Core.IEmbeddedHelpFile" />
+    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
   	public partial class $safeprojectname$UI : UserControl, IEmbeddedHelpFile
 	{
 		/// <summary>

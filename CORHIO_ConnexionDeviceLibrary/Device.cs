@@ -20,7 +20,7 @@ namespace $safeprojectname$
 	    /// </summary>
 		public override void Start()
 		{
-			// place any custom startup logic here. This will be called once when the channel is started
+			// Place any custom startup logic here. This will be called once when the channel is started
 			// MessageChannel.Logger.Write(EventSeverity.Info, "Device is starting");
 		}
 
@@ -29,7 +29,7 @@ namespace $safeprojectname$
         /// </summary>
         public override void Stop()
 		{
-			// place any custom cleanup logic here. This will be called once when the channel is stopped
+			// Place any custom cleanup logic here. This will be called once when the channel is stopped
 			// MessageChannel.Logger.Write(EventSeverity.Info, "Device is stopping");
 		}
 
@@ -68,15 +68,25 @@ namespace $safeprojectname$
         /// <param name="args">The <see cref="ErrorEventArgs"/> instance containing the event data.</param>
         public override void OnError(IMessageContext context, ErrorEventArgs args)
 		{
-			// Log error message.
-            context.WriteEvent(EventSeverity.Error, args.Exception?.ToString() ?? "Exception object empty.");
+			// TODO: Set the device's retry delay and/or backing-off strategy here.
+			// TODO: Customize device's error logging behavior.
+		
+            // Should the device retry the message?
+			// This will attempt to process the message 10 times
+			args.ShouldRetry = (args.TotalRetries < 10);
 
-            // retry the message?
-			args.ShouldRetry = true;       
+            // Logs an error every other time. 
+            if (args.TotalRetries % 2 == 1)
+            {
+                context.WriteEvent(EventSeverity.Error, args.Exception);
+            }
 
-			// todo: write something to the context and/or log
-
-            // wait before trying again?
+            // This will log each exception to the Processing History.
+            context.ProcessingEvents.AddEvent(EventSeverity.Error, args.Exception);
+			// context.WriteEvent(EventSeverity.Error, args.Exception?.ToString() ?? "Exception object empty.");
+  
+            // Wait before trying again?
+			// This waits 5 minutes upon the first two retries, then 30 minutes for every retry after that.
 			args.SleepTime = TimeSpan.FromSeconds(args.TotalRetries > 2 ? 30 : 5);
 		}
 	}
