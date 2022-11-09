@@ -11,7 +11,7 @@
         <FileVersion>$(Version)</FileVersion>
         
         <!--Repository Information.-->
-		<RepositoryUrl>https://github.com/Corhio/$baseprojectname$</RepositoryUrl>
+		<RepositoryUrl>https://github.com/ContextureHIE/$baseprojectname$</RepositoryUrl>
         
 		<Description>Contexture $safeprojectname$ Connexion Device</Description>
 		
@@ -40,7 +40,7 @@
 	
 	<!--Nuget Package References-->
 	<ItemGroup>
-      <PackageReference Include="HIE.Connexion" Version="15.3.1-GeneralTools" />
+      <PackageReference Include="HIE.Connexion" Version="15.3.1" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 
